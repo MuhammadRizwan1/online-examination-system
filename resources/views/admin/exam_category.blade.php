@@ -81,26 +81,19 @@
                     <h4 class="modal-title">Add New Category</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="{{ url('admin/add_new_category') }}" class="database_operation" method="post">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="">Enter Category name:</label>
-                                </div>
-                                <input type="text" name="name" placeholder="Enter Category name:" class="form-control"
-                                    id="">
-                            </div>
+
+                <div class="modal-body">
+                    <form action="{{ url('admin/add_new_category') }}" class="database_operation">
+                        @csrf
+                        <div class="form-group">
+                            <label for="email">Enter Category name::</label>
+                            <input type="text" required name="name" placeholder="Enter Category name:" class="form-control" id="">
                         </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <button class="btn btn-primary">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+
+                        <button class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+
             </div>
 
         </div>

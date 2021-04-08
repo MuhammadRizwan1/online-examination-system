@@ -21,4 +21,11 @@ class Admin extends Controller
     {   
         return view('admin.exam_category');
     }
+    
+    public function add_new_category(Request $request)
+    {   
+        print_r($request->all());
+        //return view('admin.exam_category');
+    }
+    
 }
