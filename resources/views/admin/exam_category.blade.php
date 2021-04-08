@@ -51,7 +51,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                    @foreach ($category as $keys =>$cat)
+                                                    <tr>
+                                                        <td>{{ $keys+1 }}</td>
+                                                        <td>{{ $cat['name'] }}</td>
+                                                        <td><input class="category_status" data-id="{{ $cat['id']}}"
+                                                            @php
+                                                                if($cat['status']==1){echo "checked";}
+                                                            @endphp
+                                                            type="checkbox" name="status" id=""></td>
+                                                        <td>
+                                                            <a href="{{ url('admin/edit_category/'.$cat['id']) }}" class="btn btn-info">Edit</a>
+                                                            <a href="{{ url('admin/delete_category/'.$cat['id']) }}"  class="btn btn-danger">Delete</a>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
@@ -87,7 +102,8 @@
                         @csrf
                         <div class="form-group">
                             <label for="email">Enter Category name::</label>
-                            <input type="text" required name="name" placeholder="Enter Category name:" class="form-control" id="">
+                            <input type="text" required name="name" placeholder="Enter Category name:" class="form-control"
+                                id="">
                         </div>
 
                         <button class="btn btn-primary">Add</button>
