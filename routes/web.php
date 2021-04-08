@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin', [App\Http\Controllers\Admin::class, 'index'])->name('admin-home');
+
+Route::get('/admin/exam_category', [App\Http\Controllers\Admin::class, 'exam_category'])->name('exam_category');
