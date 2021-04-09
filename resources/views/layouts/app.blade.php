@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  
     <base href="<?php echo url('');?>">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -210,6 +211,14 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Manage Student
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/manage_portal') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Manage Portal
                                 </p>
                             </a>
                         </li>

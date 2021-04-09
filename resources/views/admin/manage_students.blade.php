@@ -71,8 +71,8 @@
                                                             type="checkbox" name="status" id=""></td>
 
                                                         <td>
-                                                            <a href="{{ url('admin/edit_exam/'.$student->id) }}" class="btn btn-info">Edit</a>
-                                                            <a href="{{ url('admin/delete_exam/'.$student->id) }}"  class="btn btn-danger">Delete</a>
+                                                            <a href="{{ url('admin/edit_student/'.$student->id) }}" class="btn btn-info">Edit</a>
+                                                            <a href="{{ url('admin/delete_student/'.$student->id) }}"  class="btn btn-danger">Delete</a>
                                                         </td>
                                                     </tr>
                                                     @endforeach

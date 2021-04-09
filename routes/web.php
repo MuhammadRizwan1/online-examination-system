@@ -19,33 +19,34 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/admin', [App\Http\Controllers\Admin::class, 'index'])->name('admin-home');
-
-Route::get('/admin/exam_category', [App\Http\Controllers\Admin::class, 'exam_category'])->name('exam_category');
-
-Route::post('/admin/add_new_category', [App\Http\Controllers\Admin::class, 'add_new_category'])->name('admin-home');
-
-Route::get('/admin/delete_category/{id}', [App\Http\Controllers\Admin::class, 'delete_category'])->name('delete_category');
-
-Route::get('/admin/edit_category/{id}', [App\Http\Controllers\Admin::class, 'edit_category'])->name('edit_category');   
-
-
-Route::post('/admin/edit_new_category', [App\Http\Controllers\Admin::class, 'edit_new_category'])->name('edit_new_category');
-
-Route::get('/admin/category_status/{id}', [App\Http\Controllers\Admin::class, 'category_status'])->name('category_status');
-
-Route::get('/admin/manage_exam', [App\Http\Controllers\Admin::class, 'manage_exam'])->name('manage_exam'); 
-
+Route::get('/admin', [App\Http\Controllers\Admin::class, 'index']);
+Route::get('/admin/exam_category', [App\Http\Controllers\Admin::class, 'exam_category']);
+Route::post('/admin/add_new_category', [App\Http\Controllers\Admin::class, 'add_new_category']);
+Route::get('/admin/delete_category/{id}', [App\Http\Controllers\Admin::class, 'delete_category']);
+Route::get('/admin/delete_portal/{id}', [App\Http\Controllers\Admin::class, 'delete_portal']);
+Route::get('/admin/edit_category/{id}', [App\Http\Controllers\Admin::class, 'edit_category']);   
+Route::post('/admin/edit_new_category', [App\Http\Controllers\Admin::class, 'edit_new_category']);
+Route::get('/admin/category_status/{id}', [App\Http\Controllers\Admin::class, 'category_status']);
+Route::get('/admin/manage_exam', [App\Http\Controllers\Admin::class, 'manage_exam']); 
 Route::post('/admin/add_new_exam', [App\Http\Controllers\Admin::class, 'add_new_exam']);
+Route::get('/admin/exam_status/{id}', [App\Http\Controllers\Admin::class, 'exam_status']);
+Route::get('/admin/student_status/{id}', [App\Http\Controllers\Admin::class, 'student_status']);
+Route::get('/admin/delete_exam/{id}', [App\Http\Controllers\Admin::class, 'delete_exam']);
+Route::get('/admin/delete_student/{id}', [App\Http\Controllers\Admin::class, 'delete_student']);
+Route::get('/admin/edit_exam/{id}', [App\Http\Controllers\Admin::class, 'edit_exam']); 
+Route::get('/admin/edit_student/{id}', [App\Http\Controllers\Admin::class, 'edit_student']); 
+Route::get('/admin/edit_portal/{id}', [App\Http\Controllers\Admin::class, 'edit_portal']); 
+Route::post('/admin/edit_new_exam', [App\Http\Controllers\Admin::class, 'edit_new_exam']);  
+Route::post('/admin/edit_new_portal', [App\Http\Controllers\Admin::class, 'edit_new_portal']); 
+Route::post('/admin/edit_new_student', [App\Http\Controllers\Admin::class, 'edit_new_student']);  
+Route::get('/admin/manage_students', [App\Http\Controllers\Admin::class, 'manage_students']);
+Route::post('/admin/add_new_student', [App\Http\Controllers\Admin::class, 'add_new_student']);   
+Route::get('/admin/manage_portal', [App\Http\Controllers\Admin::class, 'manage_portal']);   
+Route::post('/admin/add_new_portal', [App\Http\Controllers\Admin::class, 'add_new_portal']); 
+Route::get('/admin/portal_status/{id}', [App\Http\Controllers\Admin::class, 'portal_status']);
 
-Route::get('/admin/exam_status/{id}', [App\Http\Controllers\Admin::class, 'exam_status'])->name('exam_status');
-Route::get('/admin/student_status/{id}', [App\Http\Controllers\Admin::class, 'student_status'])->name('student_status');
 
-Route::get('/admin/delete_exam/{id}', [App\Http\Controllers\Admin::class, 'delete_exam'])->name('delete_exam');
-Route::get('/admin/edit_exam/{id}', [App\Http\Controllers\Admin::class, 'edit_exam'])->name('edit_exam');   
-Route::post('/admin/edit_new_exam', [App\Http\Controllers\Admin::class, 'edit_new_exam'])->name('edit_new_exam');  
-
-Route::get('/admin/manage_students', [App\Http\Controllers\Admin::class, 'manage_students'])->name('manage_students');
-Route::post('/admin/add_new_student', [App\Http\Controllers\Admin::class, 'add_new_student']);
+/*Portal Controller */
+Route::get('/portal/signup', [App\Http\Controllers\PortalController::class, 'portal_signup']);

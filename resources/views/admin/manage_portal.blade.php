@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Exam')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="content-wrapper">
@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Exam</h1>
+                        <h1 class="m-0 text-dark">Manage Portal</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Manage Exam</li>
+                            <li class="breadcrumb-item active">Manage Portal</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -32,7 +32,7 @@
 
                                 <div class="card-tools">
                                     <a href="javascript:;" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#myModal">Add New Exam</a>
+                                        data-target="#myModal">Add New Portal</a>
                                 </div>
                             </div>
                            
@@ -46,29 +46,29 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Title</th>
-                                                        <th>Category</th>
-                                                        <th>Exam date</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Mobile No</th>
                                                         <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($exam as $keys =>$exam)
+                                                    @foreach ($portal as $keys =>$exam)
                                                     <tr>
                                                         <td>{{ $keys+1 }}</td>
-                                                        <td>{{ $exam->title }}</td>
-                                                        <td>{{ $exam->name }}</td>
-                                                        <td>{{ $exam->exam_date }}</td>
-                                                        <td><input class="exam_status" data-id="{{ $exam->id}}"
+                                                        <td>{{ $exam['name'] }}</td>
+                                                        <td>{{ $exam['email'] }}</td>
+                                                        <td>{{ $exam['mobile_no']  }}</td>
+                                                        <td><input class="portal_status" data-id="{{ $exam['id']}}"
                                                             @php
-                                                                if($exam->status ==1){echo "checked";}
+                                                                if($exam['status'] ==1){echo "checked";}
                                                             @endphp
                                                             type="checkbox" name="status" id=""></td>
                                                         
                                                         <td>
-                                                            <a href="{{ url('admin/edit_exam/'.$exam->id) }}" class="btn btn-info">Edit</a>
-                                                            <a href="{{ url('admin/delete_exam/'.$exam->id) }}"  class="btn btn-danger">Delete</a>
+                                                            <a href="{{ url('admin/edit_portal/'.$exam['id']) }}" class="btn btn-info">Edit</a>
+                                                            <a href="{{ url('admin/delete_portal/'.$exam['id']) }}"  class="btn btn-danger">Delete</a>
                                                         </td>
                                                         
                                                     </tr>
@@ -77,9 +77,9 @@
                                                 <tfoot>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Title</th>
-                                                        <th>Category</th>
-                                                        <th>Exam date</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Mobile No</th>
                                                         <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -101,33 +101,34 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add New Exam</h4>
+                    <h4 class="modal-title">Add New Portal</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <div class="modal-body">
-                    <form action="{{ url('admin/add_new_exam') }}" class="database_operation">
+                    <form action="{{ url('admin/add_new_portal') }}" class="database_operation">
                         @csrf
                         <div class="form-group">
-                            <label for="email">Title:</label>
-                            <input type="text" required name="title" placeholder="Enter Category name:" class="form-control"
+                            <label for="name">Name:</label>
+                            <input type="text" required name="name" placeholder="Enter  Name" class="form-control"
                                 id="">
                         </div>
                         <div class="form-group">
-                            <label for="email">Exam date:</label>
-                            <input type="date" required name="exam_date" placeholder="" class="form-control"
+                            <label for="email">Email:</label>
+                            <input type="text" required name="email" placeholder="Enter  Email" class="form-control"
                                 id="">
                         </div>
                         <div class="form-group">
-                            <label for="email">Category:</label>
-                            <select name="category" required  id="category" class="form-control">
-                                <option value=""> -- Select One --</option>
-                                @foreach ($category as $cat)
-                                    <option value="{{ $cat['id'] }}">{{ $cat['name'] }}</option>
-                                @endforeach 
-                            </select>
+                            <label for="mobile_no">Mobile No:</label>
+                            <input type="text" required name="mobile_no" placeholder="Enter  Mobile No" class="form-control"
+                                id="">
                         </div>
-
+                        <div class="form-group">
+                            <label for="mobile_no">Password:</label>
+                            <input type="password" required name="password" placeholder="Enter  Password" class="form-control"
+                                id="">
+                        </div>
+                     
                         <button class="btn btn-primary">Add</button>
                     </form>
                 </div>

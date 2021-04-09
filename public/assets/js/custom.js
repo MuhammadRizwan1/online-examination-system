@@ -7,7 +7,7 @@ $(document).on("submit", ".database_operation",function () {
           alert(resp.message);
           setTimeout(() => {
               window.location.href=resp.reload;
-          }, 1000);
+          }, 200);
       }
       else{
         alert(resp.message); 
@@ -21,6 +21,15 @@ $(document).on("click", ".category_status",function () {
     var id=$(this).attr('data-id');
     var base_url =$('head base').attr('href');
     $.get(base_url+'/admin/category_status/'+id,function(fb){
+        alert('Status updated Successfully');
+    });
+});
+
+
+$(document).on("click", ".portal_status",function () {
+    var id=$(this).attr('data-id');
+    var base_url =$('head base').attr('href');
+    $.get(base_url+'/admin/portal_status/'+id,function(fb){
         alert('Status updated Successfully');
     });
 });

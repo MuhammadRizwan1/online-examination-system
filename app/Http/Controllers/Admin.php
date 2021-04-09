@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Oex_category; 
 use App\Models\Oex_exam_master;
 use App\Models\Oex_students;
+use App\Models\Oex_portal;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -125,6 +126,33 @@ class Admin extends Controller
         echo json_encode($arr);
     }
 
+    public function add_new_portal(Request $request)
+    {   
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'mobile_no' => 'required',
+            'password' => 'required',
+        ]);
+    
+        if ($validator->passes())
+        {
+            $portal = new Oex_portal();
+            $portal->name = $request->name;
+            $portal->email = $request->email;
+            $portal->mobile_no = $request->mobile_no;
+            $portal->password = $request->password;
+            $portal->status = 1;
+            $portal->save();
+            $arr=array('status'=>'true','message'=>'success','reload'=>url('admin/manage_portal'));
+        }
+        else
+        {
+            $arr=array('status'=>'false','message'=>$validator->errors()->all());
+        }
+        echo json_encode($arr);
+    }
+
     public function exam_status($id)
     {   
         $cat=Oex_exam_master::where('id', $id)->get()->first();  
@@ -139,11 +167,34 @@ class Admin extends Controller
         $cat1->update();
     }
 
+
+    public function portal_status($id)
+    {   
+        $cat=Oex_portal::where('id', $id)->get()->first();  
+        if ($cat->status==1) {
+            $status=0;
+        } else {
+            $status=1;
+        }
+
+        $cat1=Oex_portal::where('id', $id)->get()->first();
+        $cat1->status=$status;
+        $cat1->update();
+    }
+
     public function delete_exam($id)
     {   
         $cat=Oex_exam_master::where('id', $id)->get()->first();
         $cat->delete();
         return redirect(url('admin/manage_exam'));
+        
+    }
+
+    public function delete_portal($id)
+    {   
+        $cat=Oex_portal::where('id', $id)->get()->first();
+        $cat->delete();
+        return redirect(url('admin/manage_portal'));
         
     }
 
@@ -164,6 +215,20 @@ class Admin extends Controller
         $exam->update();
         echo json_encode(array('status'=>'true','message'=>'Exam Updated successfully','reload'=>url('admin/manage_exam')));
     }  
+
+    public function edit_new_portal(Request $request)
+    {   
+        
+        $exam=Oex_portal::where('id', $request->id)->get()->first();
+        $exam->name = $request->name;
+        $exam->email = $request->email;
+        $exam->mobile_no = $request->mobile_no;
+        $exam->password = $request->password;
+        $exam->update();
+        echo json_encode(array('status'=>'true','message'=>'Portal Updated successfully','reload'=>url('admin/manage_portal')));
+    } 
+
+
 
     public function manage_students(Request $request)
     {   
@@ -228,6 +293,50 @@ class Admin extends Controller
         $cat1->update();
     }
 
+
+    public function delete_student($id)
+    {   
+        $cat=Oex_students::where('id', $id)->get()->first();
+        $cat->delete();
+        return redirect(url('admin/manage_students'));
+        
+    }
+
+    public function edit_student($id)   
+    {   
+        $student=Oex_students::where('id', $id)->get()->first();
+        $category=Oex_exam_master::orderBy('id', 'DESC')->where('status',1)->get()->toArray();
+        return view('admin.edit_student',['exam'=>$student,'category'=>$category]);
+    }
+
+    public function edit_portal($id)   
+    {   
+        $portal=Oex_portal::where('id', $id)->get()->first();
+        return view('admin.edit_portal',['portal'=>$portal]);
+    }
+
+    
+    public function edit_new_student(Request $request)
+    {   
+        
+        $student=Oex_students::where('id', $request->id)->get()->first();
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->mobile_no = $request->mobile_no;
+        $student->dob = $request->dob;
+        $student->exam = $request->exam;
+        $student->password = $request->password;
+       
+        $student->save();
+        echo json_encode(array('status'=>'true','message'=>'Student Updated successfully','reload'=>url('admin/manage_students')));
+    }  
+
+    
+    public function manage_portal()   
+    {   
+        $data['portal']=Oex_portal::orderBy('id', 'DESC')->get()->toArray();
+        return view('admin.manage_portal',$data);
+    }
 
 
 }
