@@ -2,9 +2,7 @@
 <html>
 
 <head>
-    <script type="text/javascript">
-    BASE_URL=<?php echo url('');?>
-    </script>
+    <base href="<?php echo url('');?>">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
@@ -195,8 +193,23 @@
                             <a href="{{ url('/admin/exam_category') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Widgets
-
+                                    Category
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/manage_exam') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Manage Exam
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/manage_students') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Manage Student
                                 </p>
                             </a>
                         </li>

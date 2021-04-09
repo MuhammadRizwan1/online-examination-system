@@ -35,3 +35,17 @@ Route::get('/admin/edit_category/{id}', [App\Http\Controllers\Admin::class, 'edi
 Route::post('/admin/edit_new_category', [App\Http\Controllers\Admin::class, 'edit_new_category'])->name('edit_new_category');
 
 Route::get('/admin/category_status/{id}', [App\Http\Controllers\Admin::class, 'category_status'])->name('category_status');
+
+Route::get('/admin/manage_exam', [App\Http\Controllers\Admin::class, 'manage_exam'])->name('manage_exam'); 
+
+Route::post('/admin/add_new_exam', [App\Http\Controllers\Admin::class, 'add_new_exam']);
+
+Route::get('/admin/exam_status/{id}', [App\Http\Controllers\Admin::class, 'exam_status'])->name('exam_status');
+Route::get('/admin/student_status/{id}', [App\Http\Controllers\Admin::class, 'student_status'])->name('student_status');
+
+Route::get('/admin/delete_exam/{id}', [App\Http\Controllers\Admin::class, 'delete_exam'])->name('delete_exam');
+Route::get('/admin/edit_exam/{id}', [App\Http\Controllers\Admin::class, 'edit_exam'])->name('edit_exam');   
+Route::post('/admin/edit_new_exam', [App\Http\Controllers\Admin::class, 'edit_new_exam'])->name('edit_new_exam');  
+
+Route::get('/admin/manage_students', [App\Http\Controllers\Admin::class, 'manage_students'])->name('manage_students');
+Route::post('/admin/add_new_student', [App\Http\Controllers\Admin::class, 'add_new_student']);

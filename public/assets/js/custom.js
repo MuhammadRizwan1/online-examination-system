@@ -9,6 +9,9 @@ $(document).on("submit", ".database_operation",function () {
               window.location.href=resp.reload;
           }, 1000);
       }
+      else{
+        alert(resp.message); 
+      }
       console.log(resp);
     });
     return false;
@@ -16,8 +19,27 @@ $(document).on("submit", ".database_operation",function () {
 
 $(document).on("click", ".category_status",function () {
     var id=$(this).attr('data-id');
-    //alert(BASE_URL);
-    $.get(BASE_URL+'/admin/category_status/'+id,function(fb){
-        alert('Status updated successfully');
+    var base_url =$('head base').attr('href');
+    $.get(base_url+'/admin/category_status/'+id,function(fb){
+        alert('Status updated Successfully');
+    });
+});
+
+
+
+$(document).on("click", ".exam_status",function () {
+    var id=$(this).attr('data-id');
+    var base_url =$('head base').attr('href');
+    $.get(base_url+'/admin/exam_status/'+id,function(fb){
+        alert('Status updated Successfully');                  
+    });
+});
+
+
+$(document).on("click", ".student_status",function () {
+    var id=$(this).attr('data-id');
+    var base_url =$('head base').attr('href');
+    $.get(base_url+'/admin/student_status/'+id,function(fb){
+        alert('Status updated Successfully');                  
     });
 });
