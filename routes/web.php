@@ -50,3 +50,9 @@ Route::get('/admin/portal_status/{id}', [App\Http\Controllers\Admin::class, 'por
 
 /*Portal Controller */
 Route::get('/portal/signup', [App\Http\Controllers\PortalController::class, 'portal_signup']);
+Route::post('/portal/signup_sub', [App\Http\Controllers\PortalController::class, 'signup_sub']);   
+Route::post('/portal/login_sub', [App\Http\Controllers\PortalController::class, 'login_sub']);
+Route::get('/portal/login', [App\Http\Controllers\PortalController::class, 'login']);
+
+
+Route::get('/portal/dashboard', [App\Http\Controllers\PortalOOperation::class, 'dashboard']);

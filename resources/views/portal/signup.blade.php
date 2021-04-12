@@ -1,256 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <style>
-        .register {
-            background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-            margin-top: 3%;
-            padding: 3%;
-        }
-
-        .register-left {
-            text-align: center;
-            color: #fff;
-            margin-top: 4%;
-        }
-
-        .register-left input {
-            border: none;
-            border-radius: 1.5rem;
-            padding: 2%;
-            width: 60%;
-            background: #f8f9fa;
-            font-weight: bold;
-            color: #383d41;
-            margin-top: 30%;
-            margin-bottom: 3%;
-            cursor: pointer;
-        }
-
-        .register-right {
-            background: #f8f9fa;
-            border-top-left-radius: 10% 50%;
-            border-bottom-left-radius: 10% 50%;
-        }
-
-        .register-left img {
-            margin-top: 15%;
-            margin-bottom: 5%;
-            width: 25%;
-            -webkit-animation: mover 2s infinite alternate;
-            animation: mover 1s infinite alternate;
-        }
-
-        @-webkit-keyframes mover {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes mover {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .register-left p {
-            font-weight: lighter;
-            padding: 12%;
-            margin-top: -9%;
-        }
-
-        .register .register-form {
-            padding: 10%;
-            margin-top: 10%;
-        }
-
-        .btnRegister {
-            float: right;
-            margin-top: 10%;
-            border: none;
-            border-radius: 1.5rem;
-            padding: 2%;
-            background: #0062cc;
-            color: #fff;
-            font-weight: 600;
-            width: 50%;
-            cursor: pointer;
-        }
-
-        .register .nav-tabs {
-            margin-top: 3%;
-            border: none;
-            background: #0062cc;
-            border-radius: 1.5rem;
-            width: 28%;
-            float: right;
-        }
-
-        .register .nav-tabs .nav-link {
-            padding: 2%;
-            height: 34px;
-            font-weight: 600;
-            color: #fff;
-            border-top-right-radius: 1.5rem;
-            border-bottom-right-radius: 1.5rem;
-        }
-
-        .register .nav-tabs .nav-link:hover {
-            border: none;
-        }
-
-        .register .nav-tabs .nav-link.active {
-            width: 100px;
-            color: #0062cc;
-            border: 2px solid #0062cc;
-            border-top-left-radius: 1.5rem;
-            border-bottom-left-radius: 1.5rem;
-        }
-
-        .register-heading {
-            text-align: center;
-            margin-top: 8%;
-            margin-bottom: -15%;
-            color: #495057;
-        }
-
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<title>Bootstrap Sign up Form with Icons</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+body {
+	color: #fff;
+	background: #19aa8d;
+	font-family: 'Roboto', sans-serif;
+}
+.form-control {
+	font-size: 15px;
+}
+.form-control, .form-control:focus, .input-group-text {
+	border-color: #e1e1e1;
+}
+.form-control, .btn {        
+	border-radius: 3px;
+}
+.signup-form {
+	width: 400px;
+	margin: 0 auto;
+	padding: 30px 0;		
+}
+.signup-form form {
+	color: #999;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	background: #fff;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+.signup-form h2 {
+	color: #333;
+	font-weight: bold;
+	margin-top: 0;
+}
+.signup-form hr {
+	margin: 0 -30px 20px;
+}
+.signup-form .form-group {
+	margin-bottom: 20px;
+}
+.signup-form label {
+	font-weight: normal;
+	font-size: 15px;
+}
+.signup-form .form-control {
+	min-height: 38px;
+	box-shadow: none !important;
+}	
+.signup-form .input-group-addon {
+	max-width: 42px;
+	text-align: center;
+}	
+.signup-form .btn, .signup-form .btn:active {        
+	font-size: 16px;
+	font-weight: bold;
+	background: #19aa8d !important;
+	border: none;
+	min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+	background: #179b81 !important;
+}
+.signup-form a {
+	color: #fff;	
+	text-decoration: underline;
+}
+.signup-form a:hover {
+	text-decoration: none;
+}
+.signup-form form a {
+	color: #19aa8d;
+	text-decoration: none;
+}	
+.signup-form form a:hover {
+	text-decoration: underline;
+}
+.signup-form .fa {
+	font-size: 21px;
+}
+.signup-form .fa-paper-plane {
+	font-size: 18px;
+}
+.signup-form .fa-check {
+	color: #fff;
+	left: 17px;
+	top: 18px;
+	font-size: 7px;
+	position: absolute;
+}
+</style>
 </head>
-
 <body>
-    <div class="container register">
-        <div class="row">
-            <div class="col-md-3 register-left">
-                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Online Examination System</h3>
-                <p>Devpel Solutions</p>
-                <input type="submit" name="" value="Login" /><br />
-            </div>
-            <div class="col-md-9 register-right">
-                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                            aria-controls="home" aria-selected="true">Employee</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                            aria-controls="profile" aria-selected="false">Hirer</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h3 class="register-heading">Portal Sign Up</h3>
-                        <div class="row register-form">
-                            <form action="{{ url('admin/signup_sub') }}" class="database_operation">
-                                @csrf
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone"
-                                            class="form-control" placeholder="Your Phone *" value="" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password *" value="" />
-                                    </div>
-                                    <input type="submit" class="btnRegister" value="Register" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <h3 class="register-heading">Apply as a Hirer</h3>
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" maxlength="10" minlength="10" class="form-control"
-                                        placeholder="Phone *" value="" />
-                                </div>
-
-
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password *"
-                                        value="" />
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control">
-                                        <option class="hidden" selected disabled>Please select your Sequrity Question
-                                        </option>
-                                        <option>What is your Birthdate?</option>
-                                        <option>What is Your old Phone Number</option>
-                                        <option>What is your Pet Name?</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                                </div>
-                                <input type="submit" class="btnRegister" value="Register" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="signup-form">
+    <form action="{{ url('portal/signup_sub') }}" class="database_operation" method="post">
+		<h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
+		<hr>
+        @csrf
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<span class="fa fa-user"></span>
+					</span>                    
+				</div>
+				<input type="text" class="form-control" name="name" placeholder="Username" required="required">
+			</div>
         </div>
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="fa fa-paper-plane"></i>
+					</span>                    
+				</div>
+				<input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
+			</div>
+        </div>
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="fa fa-mobile" aria-hidden="true"></i>
+					</span>                    
+				</div>
+				<input type="text" class="form-control" name="mobile_no" placeholder="Mobile Number" required="required">
+			</div>
+        </div>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="fa fa-lock"></i>
+					</span>                    
+				</div>
+				<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+			</div>
+        </div>
+		
+        <div class="form-group">
+			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+		</div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+        </div>
+    </form>
+	<div class="text-center">Already have an account? <a href="{{ url('portal/login') }}">Login here</a></div>
+</div>
 
-    </div>
-</body>
 
-</html>
-
-
-$(document).on("submit", ".database_operation",function () {
-    var url = $(this).attr('action');
-    var data = $(this).serialize();
-    $.post(url,data,function(fb){
-      var resp = JSON.parse(fb);
-      if (resp.status == 'true') {
-          alert(resp.message);
-          setTimeout(() => {
-              window.location.href=resp.reload;
-          }, 200);
-      }
-      else{
-        alert(resp.message); 
-      }
-      console.log(resp);
+<script>
+    $(document).on("submit", ".database_operation",function () {
+        var url = $(this).attr('action');
+        var data = $(this).serialize();
+        $.post(url,data,function(fb){
+          var resp = JSON.parse(fb);
+          if (resp.status == 'true') {
+              alert(resp.message);
+              setTimeout(() => {
+                  window.location.href=resp.reload;
+              }, 200);
+          }
+          else{
+            alert(resp.message); 
+          }
+          console.log(resp);
+        });
+        return false;
     });
-    return false;
-});
+</script>
+</body>
+</html>
